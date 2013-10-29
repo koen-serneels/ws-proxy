@@ -7,4 +7,4 @@ One can compare this with a traditional http forward/reverse proxy but instead o
 
 In outbound mode our internal services will (normally) use the wsproxy as a http forward proxy. The wsproxy will then deal with delivering the received message to the actual target. For inbound mode the module will act as a reverse proxy accepting incoming messages from external clients and relay them to our internal services.
 
-For more information please see my blog entry:
+For more information please see my blog entry: [http://koenserneels.blogspot.be/2013/10/building-soap-webservices-proxy-module.html]
