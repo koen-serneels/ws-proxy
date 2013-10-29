@@ -21,7 +21,7 @@ public class SimpleSecuredEndpoint {
 	@WebService(serviceName = "SimpleEndpoint")
 	@Addressing(enabled = false, required = false)
 	public static class SimpleWebServiceEndpoint {
-		public Date getCurrentDate(String randomParameter) {
+		public Date getCurrentDateSecured(String randomParameter) {
 			return new Date();
 		}
 	}

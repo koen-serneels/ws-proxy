@@ -90,23 +90,23 @@
 				schemaLocation="http://localhost:9999/simple?xsd=1" />
 		</xsd:schema>
 	</types>
-	<message name="getCurrentDate">
-		<part name="parameters" element="tns:getCurrentDate" />
+	<message name="getCurrentDateSecured">
+		<part name="parameters" element="tns:getCurrentDateSecured" />
 	</message>
-	<message name="getCurrentDateResponse">
-		<part name="parameters" element="tns:getCurrentDateResponse" />
+	<message name="getCurrentDateSecuredResponse">
+		<part name="parameters" element="tns:getCurrentDateSecuredResponse" />
 	</message>
 	<portType name="SimpleWebServiceEndpoint">
-		<operation name="getCurrentDate">
+		<operation name="getCurrentDateSecured">
 			<input
-				message="tns:getCurrentDate" />
+				message="tns:getCurrentDateSecured" />
 			<output
-				message="tns:getCurrentDateResponse" />
+				message="tns:getCurrentDateSecuredResponse" />
 		</operation>
 	</portType>
 	<binding name="SimpleWebServiceEndpointPortBinding" type="tns:SimpleWebServiceEndpoint">
 		<wsp:PolicyReference URI="#SimpleWebServiceEndpointService_policy" />
-		<operation name="getCurrentDate">
+		<operation name="getCurrentDateSecured">
 			<input>
 				<wsp:PolicyReference URI="#SimpleWebServiceEndpointService_Input_policy" />
 			</input>

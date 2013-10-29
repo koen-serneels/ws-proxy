@@ -39,7 +39,7 @@ public class OutboundInterceptors {
 		List<ClientInterceptor> list = new ArrayList<>();
 		list.add(getCurrentDateServiceSecurityInterceptor());
 		list.add(new LoggingInterceptor());
-		mapping.put(new QName("http://wsproxy.error.be/", "getCurrentDate"), list);
+		mapping.put(new QName("http://wsproxy.error.be/", "getCurrentDateSecured"), list);
 
 		return mapping;
 	}
