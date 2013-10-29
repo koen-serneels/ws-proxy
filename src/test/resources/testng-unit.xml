@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="unit">
+	<test verbose="0" name="unit tests" annotations="JDK">
+		<groups>
+			<run>
+				<exclude name="integration" />
+			</run>
+		</groups>
+		<packages>
+			<package name="be.error.wsproxy.*" />
+		</packages>
+	</test>
+</suite>
