@@ -49,7 +49,7 @@ public class WebServiceMessageXPathExpressionMetaData {
 	 * result values are expected to be always there, but the fact that if they are not is not severe (we would like to
 	 * know about it, but don't block processing for example) use {@link #MANDATORY}. If a mandatory value is absent and
 	 * we like to block processing because of it, use {@link #MANDATORY_BLOCKING}.
-	 * <p/>
+	 * <p>
 	 * 
 	 * <b>default is {@link #MANDATORY}</b>
 	 */

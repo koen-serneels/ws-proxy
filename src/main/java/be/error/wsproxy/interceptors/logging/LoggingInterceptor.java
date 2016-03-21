@@ -81,6 +81,11 @@ public class LoggingInterceptor implements EndpointInterceptor, ClientIntercepto
 		// Do nothing
 	}
 
+	@Override
+	public void afterCompletion(final MessageContext messageContext, final Exception ex) throws WebServiceClientException {
+		//Do nothing
+	}
+
 	private String transform(WebServiceMessage message) {
 		SaajSoapMessage saajSoapMessage = ((SaajSoapMessage) message);
 		StringResult stringResult = new StringResult();

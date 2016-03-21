@@ -23,7 +23,7 @@ import be.error.wsproxy.interceptors.ServiceSpecificEndpointInterceptor;
  * <p>
  * If an error occurs during forwarding (ie. the response retrieved was not a valid SOAP message) a runtime exception
  * will be thrown and converted to a ({@link ForwardingEndpointTargetException}). The exception will include the HTTP
- * code & reason and the the body (if available) of the upstream response as exception message. This will result in a
+ * code &amp; reason and the the body (if available) of the upstream response as exception message. This will result in a
  * SOAP fault being returned to the caller, containing the complete message. Doing this we offer an extra service to
  * callers making sure that in case of off-spec return values from upstream servers they still get a nice SOAP valid
  * reply: a SOAP fault. This also means that the handleFault of configured interceptors for this endpoint will be
