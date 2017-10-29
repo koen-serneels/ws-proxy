@@ -124,101 +124,43 @@
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
-			<!-- Disabled for now, no integration tests yet-->
-			<!--
-			<plugin>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.19.1</version>
+				<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>1.14</version>
 				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/${testng.integration.file}</suiteXmlFile>
-					</suiteXmlFiles>
-
+					<projectName>Home Automation</projectName>
+					<licenseName>apache_v2</licenseName>
+					<organizationName>error.be</organizationName>
+					<inceptionYear>2016</inceptionYear>
+					<copyrightOwners>Koen Serneels</copyrightOwners>
+					<outputDirectory>${project.basedir}/target/META-INF/licenses</outputDirectory>
+					<thirdPartyFilename>included_licenses.txt</thirdPartyFilename>
+					<useMissingFile>true</useMissingFile>
+					<useRepositoryMissingFiles>false</useRepositoryMissingFiles>
+					<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+					<roots>
+						<root>src/main/java</root>
+						<root>src/test</root>
+					</roots>
 				</configuration>
 				<executions>
-
 					<execution>
-						<id>integration-test</id>
-						<phase>integration-test</phase>
+						<id>first</id>
 						<goals>
-							<goal>integration-test</goal>
+							<goal>update-file-header</goal>
+							<goal>update-project-license</goal>
 						</goals>
+						<phase>process-sources</phase>
 					</execution>
 					<execution>
-						<id>verify</id>
-						<phase>verify</phase>
+						<id>generate-licenses-list</id>
 						<goals>
-							<goal>verify</goal>
+							<goal>add-third-party</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-			-->
-			<!-- Disabled for now, no integration tests yet-->
-			<!--
-			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.4.18</version>
-				<configuration>
-					<type>runtime</type>
-					<wait>false</wait>
-					<skip>${skipITs}</skip>
-					<container>
-						<containerId>tomcat7x</containerId>
-						<zipUrlInstaller>
-							<url>http://apache.belnet.be/tomcat/tomcat-8/v8.0.0-RC3/bin/apache-tomcat-8.0.0-RC3.zip</url>
-							<downloadDir>${basedir}/software</downloadDir>
-							<extractDir>${project.build.directory}</extractDir>
-						</zipUrlInstaller>
-						<systemProperties>
-							<spring.profiles.active>integration-tests</spring.profiles.active>
-						</systemProperties>
-						<output>${project.build.directory}/tomcat.log</output>
-						<log>${project.build.directory}/cargo.log</log>
-					</container>
-
-					<configuration>
-						<type>standalone</type>
-						<properties>
-							<cargo.hostname>${tomcat.server.name}</cargo.hostname>
-							<cargo.servlet.port>${tomcat.server.port}</cargo.servlet.port>
-							<context>${project.artifactId}</context>
-						</properties>
-					</configuration>
-					<deployables>
-						<deployable>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>${project.artifactId}</artifactId>
-							<type>war</type>
-							<properties>
-								<context>${project.artifactId}</context>
-							</properties>
-							<pingURL>http://${tomcat.server.name}:${tomcat.server.port}/${project.artifactId}/index.jsp</pingURL>
-							<pingTimeout>140000</pingTimeout>
-						</deployable>
-					</deployables>
-				</configuration>
-
-				<executions>
-					<execution>
-						<id>start-container</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>start</goal>
-
-						</goals>
-					</execution>
-					<execution>
-						<id>stop-container</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			-->
 		</plugins>
 
 		<filters>
