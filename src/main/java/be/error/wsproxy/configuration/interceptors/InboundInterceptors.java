@@ -63,7 +63,7 @@ public class InboundInterceptors {
 	@Configuration
 	public static class ServiceSpecificInterceptors {
 		@Bean
-		public PayloadRootSmartSoapEndpointInterceptor getCurrentDateLoggingInterecptor() {
+		public PayloadRootSmartSoapEndpointInterceptor getCurrentDateLoggingInterceptor() {
 			LoggingXPathInterceptor loggingXPathInterceptor = new LoggingXPathInterceptor();
 			loggingXPathInterceptor.addRequestXPaths(new WebServiceMessageXPathExpressionMetaData(
 					"//*[local-name()='arg0']", "requestParameter"));
